@@ -19,6 +19,22 @@ defmodule LatencySimulator do
     end
   end
 
+  post "/tokenapplication/" do
+    Process.sleep(2000)
+    send_resp(conn, 200, "{\"token_type\":\"string\",\"access_token\":\"string\",\"expires_in\":10000,\"consented_on\":10000,\"scope\":\"string\"}")
+  end
+
+  post "/tokenwas/" do
+    Process.sleep(2000)
+    send_resp(conn, 200,   "{\"data\":[{\"customerName\":\"string\",\"documentNumber\":\"string\",\"tokenType\":\"string\",\"accessToken\":\"string\",\"documentType\":\"string\"}]}")
+  end
+
+  post "/dynamickey/" do
+    Process.sleep(2000)
+    send_resp(conn, 200,   "{\"data\":[{\"type_strongAutentication\":\"string\"}]}")
+  end
+
+
 
   match _ do
     send_resp(conn, 404, "oops... Nothing here :(")
